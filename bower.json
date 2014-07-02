@@ -2,7 +2,7 @@
   "name": "ChomadProblemForm",
   "version": "0.0.0",
   "authors": [
-    "jsakamoto <junichi.jp@gmail.com>"
+    "@jsakamoto"
   ],
   "license": "?",
   "ignore": [
@@ -13,6 +13,6 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.2.18"
+    "angular": "1.2.18"
   }
 }
