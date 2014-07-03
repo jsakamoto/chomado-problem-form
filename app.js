@@ -1,7 +1,10 @@
 /// <reference path="typings/angularjs/angular.d.ts" />
 var app = angular.module("app", []);
 
-app.controller("hello", function ($scope, $http) {
+app.controller("chomadoProblemForm", function ($scope, $http) {
+    //$scope.serverUrl = "http://localhost:52328/",
+    //$scope.serverUrl = "//chomado-problem-server.apphb.com/";
+    $scope.serverUrl = "//chomado-problem-server.azurewebsites.net/";
     $scope.options = [1, 2, 3, 4];
     $scope.questions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     $scope.answers = new Array($scope.questions.length);
@@ -17,7 +20,8 @@ app.controller("hello", function ($scope, $http) {
     });
 
     $scope.sendAnswer = function () {
-        $http.post("http://localhost:52328/answer", $scope.answers, { headers: { "content-type": "application/json" } }).success(function (count) {
+        var apiUrl = $scope.serverUrl + "answer";
+        $http.post(apiUrl, $scope.answers).success(function (count) {
             $scope.correct_count = count;
         });
     };

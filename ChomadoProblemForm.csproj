@@ -17,9 +17,6 @@
     <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="bower_components\angular\angular-csp.css" />
-    <Content Include="bower_components\angular\angular.js" />
-    <Content Include="bower_components\angular\angular.min.js" />
     <Content Include="app.js" />
     <None Include="Gruntfile.js" />
     <Content Include="index.html" />
@@ -32,12 +29,8 @@
     <TypeScriptCompile Include="typings\tsd.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bower_components\angular\.bower.json" />
-    <Content Include="bower_components\angular\angular.min.js.gzip" />
-    <Content Include="bower_components\angular\angular.min.js.map" />
-    <Content Include="bower_components\angular\bower.json" />
-    <Content Include="bower_components\angular\README.md" />
     <Content Include="bower.json" />
+    <Content Include="lib\angular\angular.js" />
     <Content Include="package.json" />
     <Content Include="tsd.json" />
   </ItemGroup>

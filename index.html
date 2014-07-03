@@ -4,12 +4,12 @@
     <title>Chomad Problem Form</title>
     <link href="app.css" rel="stylesheet" />
 </head>
-<body ng-app="app">
+<body ng-app="app" ng-controller="chomadoProblemForm">
     <div id="description">
         <h1>Chomad Problem Form</h1>
         <h2>これは何?</h2>
         <p>
-            "ちょまど問題" サーバーへ回答を送信し、
+            <a ng-href="{{serverUrl}}" target="_blank">"ちょまど問題" サーバー</a>へ回答を送信し、
             応答された正答数を表示するだけの
             HTML フォームです。
         </p>
@@ -17,9 +17,12 @@
             サーバー側の実装はなく、ブラウザ上の JavaScript で
             動作するため、DropBox に配置してみました。
         </p>
+        <h2>"ちょまど問題" って?</h2>
+        <p>togetter にまとめがあります。</p>
+        <p><a href="http://togetter.com/li/682030">何回で満点とれる？【ちょまど問題に挑む人々】</a></p>
     </div>
 
-    <form ng-controller="hello">
+    <form>
         <table>
             <tr>
                 <th></th>
@@ -57,10 +60,10 @@
     </form>
 
     <footer>
-        Powered by TypeScript, AngularJS | Source code is here.
+        Powered by TypeScript, AngularJS | Source code is <a href="https://github.com/jsakamoto/chomado-problem-form" target="_blank">here</a>.(GNU GPLv2)
     </footer>
 
-    <script src="bower_components/angular/angular.js"></script>
+    <script src="lib/angular/angular.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
