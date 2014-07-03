@@ -6,6 +6,7 @@ interface IScope extends ng.IScope {
     questions: number[];
     answers: number[];
     correct_count: number;
+    trial: number;
     filled: boolean;
     serverUrl: string;
 
@@ -20,6 +21,7 @@ app.controller("chomadoProblemForm", ($scope: IScope, $http: ng.IHttpService) =>
     $scope.questions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     $scope.answers = new Array($scope.questions.length);
     $scope.correct_count = null;
+    $scope.trial = 0
 
     $scope.$watch(
         scope => JSON.stringify((<IScope>scope).answers),
@@ -33,6 +35,7 @@ app.controller("chomadoProblemForm", ($scope: IScope, $http: ng.IHttpService) =>
         $http.post(apiUrl, $scope.answers)
             .success(count => {
                 $scope.correct_count = <number>count;
+                $scope.trial += 1
             });
     };
 });
