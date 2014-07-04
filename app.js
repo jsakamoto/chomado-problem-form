@@ -9,6 +9,7 @@ app.controller("chomadoProblemForm", function ($scope, $http) {
     $scope.questions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     $scope.answers = new Array($scope.questions.length);
     $scope.correct_count = null;
+    $scope.trial = 0;
 
     $scope.$watch(function (scope) {
         return JSON.stringify(scope.answers);
@@ -23,6 +24,7 @@ app.controller("chomadoProblemForm", function ($scope, $http) {
         var apiUrl = $scope.serverUrl + "answer";
         $http.post(apiUrl, $scope.answers).success(function (count) {
             $scope.correct_count = count;
+            $scope.trial += 1;
         });
     };
 });

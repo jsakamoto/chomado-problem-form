@@ -40,7 +40,7 @@
             <button id="btn-send-answer"
                     ng-disabled="!filled"
                     ng-click="sendAnswer()">
-                Sned Answer
+                Send Answer
             </button>
         </div>
 
@@ -55,6 +55,9 @@
                     {{correct_count}}
                 </span>
                 answers are correct.
+            </div>
+            <div>
+              You tried {{trial}} time(s).
             </div>
         </div>
     </form>
