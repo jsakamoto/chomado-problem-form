@@ -57,13 +57,19 @@
                 answers are correct.
             </div>
             <div>
-              You tried {{trial}} time(s).
+                You tried {{trial}} time(s).
             </div>
         </div>
     </form>
 
     <footer>
-        Powered by TypeScript, AngularJS | Source code is <a href="https://github.com/jsakamoto/chomado-problem-form" target="_blank">here</a>.(GNU GPLv2)
+        Powered by TypeScript, AngularJS | Source code is <a href="https://github.com/jsakamoto/chomado-problem-form" target="_blank">here</a>.(GNU GPLv2) |
+        Contributors are <span ng-repeat="contributor in contributors">
+            <a ng-href="{{contributor.html_url}}" target="_blank" class="contributor">
+                <img ng-src="{{contributor.avatar_url}}"
+                     title="{{contributor.login}}"
+                     class="avatar" />
+            </a>
     </footer>
 
     <script src="lib/angular/angular.js"></script>
