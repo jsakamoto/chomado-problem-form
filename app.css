@@ -17,7 +17,7 @@ h1 {
 
 h2 {
     font-size: 120%;
-    margin-top:1em;
+    margin-top: 1em;
 }
 
 #description {
@@ -27,7 +27,7 @@ h2 {
     margin-right: 2em;
     padding: 1em;
     float: left;
-    max-width:20em;
+    max-width: 20em;
 }
 
 
@@ -95,3 +95,16 @@ footer {
     font-size: 90%;
     margin-top: 3em;
 }
+
+.contributor {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    margin: 4px;
+}
+
+    .contributor .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 4px;
+    }

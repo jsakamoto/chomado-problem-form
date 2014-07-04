@@ -27,5 +27,10 @@ app.controller("chomadoProblemForm", function ($scope, $http) {
             $scope.trial += 1;
         });
     };
+
+    var contributorsUrl = 'https://api.github.com/repos/jsakamoto/chomado-problem-form/contributors';
+    $http.get(contributorsUrl).success(function (contributors) {
+        $scope.contributors = contributors;
+    });
 });
 //# sourceMappingURL=app.js.map

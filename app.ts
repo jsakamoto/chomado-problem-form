@@ -9,6 +9,7 @@ interface IScope extends ng.IScope {
     trial: number;
     filled: boolean;
     serverUrl: string;
+    contributors: any;
 
     sendAnswer: () => void;
 }
@@ -38,4 +39,10 @@ app.controller("chomadoProblemForm", ($scope: IScope, $http: ng.IHttpService) =>
                 $scope.trial += 1
             });
     };
+
+    var contributorsUrl = 'https://api.github.com/repos/jsakamoto/chomado-problem-form/contributors';
+    $http.get(contributorsUrl).success(contributors=> {
+        $scope.contributors = contributors;
+    });
+
 });
