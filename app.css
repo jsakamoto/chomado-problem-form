@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+    *[ng-cloak] {
+        display: none !important;
+    }
+
 body, h1, h2, h3 {
     margin: 0;
 }
