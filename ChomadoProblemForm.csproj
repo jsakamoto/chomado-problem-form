@@ -23,6 +23,10 @@
     <None Include="Gruntfile.js" />
     <Content Include="index.html" />
     <Content Include="app.css" />
+    <Content Include="lib\angular-cfp-hotkeys\hotkeys.css" />
+    <Content Include="lib\angular-cfp-hotkeys\hotkeys.js" />
+    <Content Include="lib\angular-cfp-hotkeys\hotkeys.min.css" />
+    <Content Include="lib\angular-cfp-hotkeys\hotkeys.min.js" />
     <Content Include="lib\angular-loading-bar\loading-bar.css" />
     <Content Include="lib\angular-loading-bar\loading-bar.js" />
     <Content Include="lib\angular-loading-bar\loading-bar.min.css" />
@@ -31,6 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="typings\angular-hotkeys\angular-hotkeys.d.ts" />
     <TypeScriptCompile Include="typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="typings\tsd.d.ts" />

@@ -1,9 +1,10 @@
 /// <reference path="typings/angularjs/angular.d.ts" />
-var app = angular.module("app", ['angular-loading-bar']);
+/// <reference path="typings/angular-hotkeys/angular-hotkeys.d.ts" />
+var app = angular.module("app", ['angular-loading-bar', 'cfp.hotkeys']);
 app.config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = false;
 }]);
-app.controller("chomadoProblemForm", function ($scope, $http) {
+app.controller("chomadoProblemForm", function ($scope, $http, hotkeys) {
     //$scope.serverUrl = "http://localhost:52328/",
     //$scope.serverUrl = "https://chomado-problem-server.apphb.com/";
     $scope.serverUrl = "https://chomado-problem-server.azurewebsites.net/";
@@ -12,6 +13,15 @@ app.controller("chomadoProblemForm", function ($scope, $http) {
     $scope.answers = new Array($scope.questions.length);
     $scope.correct_count = null;
     $scope.trial = 0;
+    hotkeys.bindTo($scope);
+    hotkeys.add({
+        combo: 's',
+        allowIn: ['INPUT'],
+        description: "send answer",
+        callback: function (event) {
+            $scope.sendAnswer();
+        }
+    });
     $scope.$watch(function (scope) { return JSON.stringify(scope.answers); }, function () {
         $scope.filled = $scope.answers.filter(function (n) { return n != null; }).length == $scope.questions.length;
         $scope.correct_count = null;
