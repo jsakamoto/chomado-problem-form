@@ -1,5 +1,7 @@
 /// <reference path="typings/angularjs/angular.d.ts" />
-var app = angular.module("app", ['angular-loading-bar']);
+/// <reference path="typings/angular-hotkeys/angular-hotkeys.d.ts" />
+
+var app = angular.module("app", ['angular-loading-bar', 'cfp.hotkeys']);
 app.config(['cfpLoadingBarProvider', cfpLoadingBarProvider => {
     cfpLoadingBarProvider.includeSpinner = false;
 }]);
@@ -17,7 +19,7 @@ interface IScope extends ng.IScope {
     sendAnswer: () => void;
 }
 
-app.controller("chomadoProblemForm",($scope: IScope, $http: ng.IHttpService) => {
+app.controller("chomadoProblemForm",($scope: IScope, $http: ng.IHttpService, hotkeys: angular.hotkeys.HotkeysProvider) => {
     //$scope.serverUrl = "http://localhost:52328/",
     //$scope.serverUrl = "https://chomado-problem-server.apphb.com/";
     $scope.serverUrl = "https://chomado-problem-server.azurewebsites.net/"
@@ -26,6 +28,14 @@ app.controller("chomadoProblemForm",($scope: IScope, $http: ng.IHttpService) => 
     $scope.answers = new Array($scope.questions.length);
     $scope.correct_count = null;
     $scope.trial = 0
+
+    hotkeys.bindTo($scope);
+    hotkeys.add({
+        combo: 's',
+        allowIn: ['INPUT'],
+        description: "send answer",
+        callback: (event: Event) => { $scope.sendAnswer(); }
+    });
 
     $scope.$watch(
         scope => JSON.stringify((<IScope>scope).answers),

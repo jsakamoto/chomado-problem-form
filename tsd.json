@@ -10,6 +10,9 @@
     },
     "jquery/jquery.d.ts": {
       "commit": "b40258ccaa0ba9fac889f668f5346f59880d6d66"
+    },
+    "angular-hotkeys/angular-hotkeys.d.ts": {
+      "commit": "101a5daef4fc42eca0d447ba5d080248f80daf90"
     }
   }
 }
