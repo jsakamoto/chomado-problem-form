@@ -18,7 +18,9 @@ module.exports = function (grunt) {
         bower: {
             install: {
                 options: {
-                    install: true
+                    verbose: true,
+                    install: true,
+                    layout: function (type, component) { return component; }
                 }
             }
         },

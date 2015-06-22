@@ -23,6 +23,11 @@
     <None Include="Gruntfile.js" />
     <Content Include="index.html" />
     <Content Include="app.css" />
+    <Content Include="lib\angular-loading-bar\loading-bar.css" />
+    <Content Include="lib\angular-loading-bar\loading-bar.js" />
+    <Content Include="lib\angular-loading-bar\loading-bar.min.css" />
+    <Content Include="lib\angular-loading-bar\loading-bar.min.js" />
+    <Content Include="lib\angular\angular.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
@@ -33,6 +38,7 @@
   <ItemGroup>
     <Content Include="bower.json" />
     <Content Include="lib\angular\angular.js" />
+    <Content Include="lib\angular\angular.min.js" />
     <Content Include="package.json" />
     <Content Include="tsd.json" />
   </ItemGroup>
