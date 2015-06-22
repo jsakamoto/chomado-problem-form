@@ -1,5 +1,8 @@
 /// <reference path="typings/angularjs/angular.d.ts" />
 var app = angular.module("app", ['angular-loading-bar']);
+app.config(['cfpLoadingBarProvider', cfpLoadingBarProvider => {
+    cfpLoadingBarProvider.includeSpinner = false;
+}]);
 
 interface IScope extends ng.IScope {
     options: number[];
@@ -14,7 +17,7 @@ interface IScope extends ng.IScope {
     sendAnswer: () => void;
 }
 
-app.controller("chomadoProblemForm", ($scope: IScope, $http: ng.IHttpService) => {
+app.controller("chomadoProblemForm",($scope: IScope, $http: ng.IHttpService) => {
     //$scope.serverUrl = "http://localhost:52328/",
     //$scope.serverUrl = "https://chomado-problem-server.apphb.com/";
     $scope.serverUrl = "https://chomado-problem-server.azurewebsites.net/"
@@ -35,9 +38,9 @@ app.controller("chomadoProblemForm", ($scope: IScope, $http: ng.IHttpService) =>
         var apiUrl = $scope.serverUrl + "answer";
         $http.post(apiUrl, $scope.answers)
             .success(count => {
-                $scope.correct_count = <number>count;
-                $scope.trial += 1
-            });
+            $scope.correct_count = <number>count;
+            $scope.trial += 1
+        });
     };
 
     var contributorsUrl = 'https://api.github.com/repos/jsakamoto/chomado-problem-form/contributors';

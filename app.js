@@ -1,5 +1,8 @@
 /// <reference path="typings/angularjs/angular.d.ts" />
 var app = angular.module("app", ['angular-loading-bar']);
+app.config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = false;
+}]);
 app.controller("chomadoProblemForm", function ($scope, $http) {
     //$scope.serverUrl = "http://localhost:52328/",
     //$scope.serverUrl = "https://chomado-problem-server.apphb.com/";
