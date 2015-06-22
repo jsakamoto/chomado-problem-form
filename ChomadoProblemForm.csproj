@@ -17,7 +17,9 @@
     <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="app.js" />
+    <Content Include="app.js">
+      <DependentUpon>app.ts</DependentUpon>
+    </Content>
     <None Include="Gruntfile.js" />
     <Content Include="index.html" />
     <Content Include="app.css" />
