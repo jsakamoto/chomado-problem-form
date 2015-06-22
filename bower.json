@@ -13,6 +13,17 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "1.2.18"
+    "angular": "1.2.18",
+    "angular-loading-bar": "~0.8.0"
+  },
+  "exportsOverride": {
+    "angular": {
+      "js": "**/*.js",
+      "map": "**/*.map"
+    },
+    "angular-loading-bar": {
+      "js": "**/build/*.js",
+      "css": "**/build/*.css"
+    }
   }
 }

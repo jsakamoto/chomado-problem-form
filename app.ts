@@ -1,5 +1,5 @@
 /// <reference path="typings/angularjs/angular.d.ts" />
-var app = angular.module("app", []);
+var app = angular.module("app", ['angular-loading-bar']);
 
 interface IScope extends ng.IScope {
     options: number[];
