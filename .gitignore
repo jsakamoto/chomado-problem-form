@@ -1,9 +1,5 @@
 *.suo
 *.user
 node_modules/
-bower_components/
-lib/
-typings/
 bin/
 obj/
-.tscache/

@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Chomad Problem Form</title>
-    <link href="app.css" rel="stylesheet" />
-    <link href="lib/angular-loading-bar/loading-bar.min.css" rel="stylesheet" />
-    <link href="lib/angular-cfp-hotkeys/hotkeys.min.css" rel="stylesheet" />
 </head>
-<body ng-app="app" ng-controller="chomadoProblemForm">
+
+<body ng-app="app" ng-controller="chomadProblemFormController as ctrl">
     <div id="description">
         <h1>Chomad Problem Form</h1>
         <h2>これは何?</h2>
         <p>
-            <a ng-href="{{serverUrl}}" target="_blank">"ちょまど問題" サーバー</a>へ回答を送信し、
-            応答された正答数を表示するだけの
-            HTML フォームです。
+            <a ng-href="{{ctrl.serverUrl}}" target="_blank">"ちょまど問題" サーバー</a>へ回答を送信し、 応答された正答数を表示するだけの HTML フォームです。
         </p>
         <p>
-            サーバー側の実装はなく、ブラウザ上の JavaScript で
-            動作するため、DropBox に配置してみました。
+            サーバー側の実装はなく、ブラウザ上の JavaScript で 動作するため、DropBox に配置してみました。
         </p>
         <h2>"ちょまど問題" って?</h2>
         <p>togetter にまとめがあります。</p>
@@ -30,45 +26,40 @@
         <table>
             <tr>
                 <th></th>
-                <th ng-repeat="option in options">A{{option}}</th>
+                <th ng-repeat="option in ctrl.options">A{{option}}</th>
             </tr>
-            <tr ng-repeat="question in questions">
+            <tr ng-repeat="question in ctrl.questions">
                 <td>Q{{question}}</td>
-                <td ng-repeat="option in options">
-                    <input type="radio" name="Q{{question}}" value="{{option}}" ng-model="answers[question-1]" class="option" />
+                <td ng-repeat="option in ctrl.options">
+                    <input type="radio" name="Q{{question}}" value="{{option}}" ng-model="ctrl.answers[question-1]" class="option" />
                 </td>
             </tr>
         </table>
 
         <div>
-            <button id="btn-send-answer"
-                    ng-disabled="!filled"
-                    ng-click="sendAnswer()">
+            <button id="btn-send-answer" ng-disabled="!ctrl.filled" ng-click="ctrl.sendAnswer()">
                 Send Answer
             </button>
         </div>
 
-        <div id="status-pane"
-             ng-show="correct_count"
-             ng-class="{perfect:correct_count == questions.length}">
+        <div id="status-pane" ng-show="ctrl.correct_count" ng-class="{perfect:ctrl.correct_count == ctrl.questions.length}">
             <div id="congratulation-msg">
                 Congratulation!
             </div>
             <div>
                 <span id="correct-count">
-                    {{correct_count}}
-                </span>
-                answers are correct.
+                    {{ctrl.correct_count}}
+                </span> answers are correct.
             </div>
             <div>
-                You tried {{trial}} time(s).
+                You tried {{ctrl.trial}} time(s).
             </div>
         </div>
     </form>
 
     <footer>
-        Powered by TypeScript, AngularJS | Source code is <a href="https://github.com/jsakamoto/chomado-problem-form" target="_blank">here</a>.(GNU GPLv2) |
-        Contributors are <span ng-repeat="contributor in contributors">
+        Powered by TypeScript, AngularJS | Source code is <a href="https://github.com/jsakamoto/chomado-problem-form" target="_blank">here</a>.(GNU
+        GPLv2) | Contributors are <span ng-repeat="contributor in ctrl.contributors">
             <a ng-href="{{contributor.html_url}}" target="_blank" class="contributor">
                 <img ng-src="{{contributor.avatar_url}}"
                      title="{{contributor.login}}"
@@ -76,9 +67,6 @@
             </a>
     </footer>
 
-    <script src="lib/angular/angular.min.js"></script>
-    <script src="lib/angular-loading-bar/loading-bar.min.js"></script>
-    <script src="lib/angular-cfp-hotkeys/hotkeys.min.js"></script>
-    <script src="app.js"></script>
+    <script src="bundle.js"></script>
 </body>
 </html>
