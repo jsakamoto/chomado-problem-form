@@ -5,9 +5,9 @@
 ["ちょまど問題" サーバー](https://chomado-problem-server.azurewebsites.net/)
 へ回答を送信し、 応答された正答数を表示するだけの HTML フォームです。
 
-サーバー側の実装はなく、ブラウザ上の JavaScript で 動作するため、DropBox に配置してみました。
+サーバー側の実装はなく、ブラウザ上の JavaScript で 動作するため、GitHub Pages に配置してみました。
 
-[https://dl.dropboxusercontent.com/u/28872413/chomado-problem-form/index.html](https://dl.dropboxusercontent.com/u/28872413/chomado-problem-form/index.html)
+[https://jsakamoto.github.io/chomado-problem-form/](https://jsakamoto.github.io/chomado-problem-form/)
 
 ## "ちょまど問題" って?
 
