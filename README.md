@@ -70,3 +70,6 @@ Visual Studio 上での app.ts 編集時は、インテリセンスが効きま�
 先の手順で、`npm install` によって AngularJS の型定義ファイルがインストールされているため、
 Visual Studio Code 上での app.ts 編集時は、インテリセンスが効きます。
 
+## ライセンス
+
+[GNU GPLv2](LICENSE)
