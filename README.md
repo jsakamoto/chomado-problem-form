@@ -31,28 +31,42 @@ AngularJS 上に作成した、ブラウザ上の JavaScript だけで動作す�
 
 このリポジトリを git clone したら、ターミナルないしはコマンドプロンプトにて、
 カレントディレクトリを作業フォルダに移動した上で ```npm install``` を実行します。  
-すると、必要な開発ツール (grunt, bower, tsd) 作業フォルダローカルにインストールされます。
+すると、
 
-次に ```./node_modules/.bin/grunt setup``` を実行します。  
-これで必要な外部ライブラリ (AngularJS) と TypeScript 用の型定義ファイルがダウンロード、
-インストールされます。
+- 必要な開発ツール (webpack とそのプラグインやローダー、TypeScript コンパイラ) 
+- 必要な外部ライブラリ (AngularJS とその追加モジュール)
+- TypeScript 用の型定義ファイル
 
-### TypeScript のコンパイル
+が作業フォルダローカルにインストールされます。
 
-#### a) tsc または grunt によるコンパイル
+### TypeScript のコンパイルとモジュール参照の解決
 
-TypeScript ファイルは、app.ts ひとつだけです。  
-app.ts を編集したら、TypeScript コンパイラで JavaScript へコンパイルする必要があります。
+#### a) コマンドライン (ターミナル) からのビルド
 
-app.ts をコンパイルし app.js を生成するには、```./node_modules/.bin/grunt``` を実行します。  
-あるいは ```./node_modules/.bin/grunt watch``` を実行し、grunt による監視を常駐させておくと、
-app.ts の変更を検知したら自動で app.js へのコンパイルが実行されます。
+TypeScript ファイルは、./src/app.ts ひとつだけです。  
+app.ts を編集したら、TypeScript コンパイラで JavaScript へコンパイルし、モジュールバンドラーである webpack を使ってモジュール参照を解決する必要があります。
 
-#### b) Visual Studio によるコンパイル
+app.ts をコンパイルし、モジュール参照を解決した JavaScript ファイル (このプロジェクトでは bundle.js) を生成するには、`npm run build` を実行します。
 
-Windows OS 上で、Visual Studio (無料版の Express Edition 含む) を使っている場合は、
-ChomadoProblemForm.sln を開けば開発可能です。  
-Visual Studio 上で app.ts を編集して保存すると、保存するタイミングで app.js にコンパイルされます。
+あるいは `npm run watch` を実行し、webpack による監視を常駐させておくと、
+app.ts の変更を検知したら自動で bundle.js へのコンパイルが実行されます。
 
-先の手順で、```grunt setup``` によって AngularJS の型定義ファイルがインストールされているため、
+#### b) Visual Studio による開発
+
+Windows OS 上で Visual Studio (無料版の Community Edition 含む) を使っている場合は、["NPM Task Runner"](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.NPMTaskRunner) という Visual Studio 拡張を事前にインストールしておいてください。
+
+そのうえで Visual Studio ソリューションファイル `ChomadoProblemForm.sln` を開くと `npm run watch` による監視が自動で開始されるます。  
+この仕組みにより、Visual Studio 上で app.ts を編集して保存すると、自動で bundle.js が生成されます。
+
+先の手順で、`npm install` によって AngularJS の型定義ファイルがインストールされているため、
 Visual Studio 上での app.ts 編集時は、インテリセンスが効きます。
+
+#### c) Visual Studio Code による開発
+
+このリポジトリには、Visual Studio Code 用のタスク設定ファイルも同梱してあります。
+
+このため、このリポジトリを git clone したフォルダを Visula Studio Code で開き、キーボードで Ctrl + Shift + B を押すと、`npm run watch` が実行され、以後、Visual Studio Code 上で app.ts を編集して保存すると、自動で bundle.js が生成されます。
+
+先の手順で、`npm install` によって AngularJS の型定義ファイルがインストールされているため、
+Visual Studio Code 上での app.ts 編集時は、インテリセンスが効きます。
+
