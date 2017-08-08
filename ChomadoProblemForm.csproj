@@ -9,43 +9,32 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="app.js">
-      <DependentUpon>app.ts</DependentUpon>
+    <Content Include="bundle.js" />
+    <Content Include="bundle.js.map">
+      <DependentUpon>bundle.js</DependentUpon>
     </Content>
-    <None Include="Gruntfile.js" />
+    <Content Include="src\app.css" />
     <Content Include="index.html" />
-    <Content Include="app.css" />
-    <Content Include="lib\angular-cfp-hotkeys\hotkeys.css" />
-    <Content Include="lib\angular-cfp-hotkeys\hotkeys.js" />
-    <Content Include="lib\angular-cfp-hotkeys\hotkeys.min.css" />
-    <Content Include="lib\angular-cfp-hotkeys\hotkeys.min.js" />
-    <Content Include="lib\angular-loading-bar\loading-bar.css" />
-    <Content Include="lib\angular-loading-bar\loading-bar.js" />
-    <Content Include="lib\angular-loading-bar\loading-bar.min.css" />
-    <Content Include="lib\angular-loading-bar\loading-bar.min.js" />
-    <Content Include="lib\angular\angular.min.js.map" />
+    <Content Include="webpack.config.js" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app.ts" />
-    <TypeScriptCompile Include="typings\angular-hotkeys\angular-hotkeys.d.ts" />
-    <TypeScriptCompile Include="typings\angularjs\angular.d.ts" />
-    <TypeScriptCompile Include="typings\jquery\jquery.d.ts" />
-    <TypeScriptCompile Include="typings\tsd.d.ts" />
+    <Content Include="README.md" />
+    <Content Include="LICENSE" />
+    <None Include="src\app.ts" />
+    <Content Include="tsconfig.json" />
+    <Content Include="yarn.lock" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bower.json" />
-    <Content Include="lib\angular\angular.js" />
-    <Content Include="lib\angular\angular.min.js" />
     <Content Include="package.json" />
-    <Content Include="tsd.json" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -76,9 +65,18 @@
   </ProjectExtensions>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptTarget>ES5</TypeScriptTarget>
-    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
-    <TypeScriptSourceMap>true</TypeScriptSourceMap>
-    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptCompileOnSaveEnabled>False</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <TypeScriptTarget>ES5</TypeScriptTarget>
