@@ -7,8 +7,8 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.ts$/, use: ['awesome-typescript-loader', 'angular2-template-loader'] },
-            { test: /\.html$/, loader: 'html-loader?minimize=false' }
-            //,{ test: /\.css$/, loaders: ['style-loader', 'css-loader'] }
+            { test: /\.html$/, loader: 'html-loader?minimize=false' },
+            { test: /\.css$/, loaders: ['style-loader', 'css-loader'] }
         ]
     },
     devtool: 'source-map'

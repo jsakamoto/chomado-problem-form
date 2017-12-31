@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './components/app/app.component';
+import * as Material from '@angular/material';
+import '@angular/material/prebuilt-themes/indigo-pink.css'
 
 @NgModule({
     bootstrap: [AppComponent],
     imports: [
-        BrowserModule
+        BrowserModule,
+        Material.MatCardModule,
+        Material.MatButtonModule,
+        Material.MatRadioModule
     ],
     declarations: [
         AppComponent
