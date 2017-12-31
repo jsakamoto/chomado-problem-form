@@ -1,25 +1,30 @@
 {
-  "name": "chomad-problem-form",
-  "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "name": "chomado-problem-form",
+  "version": "1.0.0",
+  "description": "Chomado Problem Form",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/"
+  },
   "scripts": {
-    "watch": "webpack -p -w"
+    "build": "webpack",
+    "watch": "webpack -w"
   },
-  "author": "",
-  "license": "GPLv2",
   "devDependencies": {
-    "@types/angular": "1.6.28",
-    "@types/angular-hotkeys": "^0.0.33",
-    "@types/angular-loading-bar": "^0.0.32",
-    "angular": "1.5.7",
-    "angular-hotkeys": "^1.7.0",
-    "angular-loading-bar": "^0.9.0",
-    "css-loader": "^0.28.4",
-    "style-loader": "^0.18.2",
-    "ts-loader": "^2.3.2",
-    "typescript": "^2.4.2",
-    "webpack": "^3.4.1"
-  },
-  "-vs-binding": { "ProjectOpened": [ "watch" ] }
+    "@angular/common": "5.0.0",
+    "@angular/compiler": "5.0.0",
+    "@angular/core": "5.0.0",
+    "@angular/http": "5.0.0",
+    "@angular/platform-browser": "5.0.0",
+    "@angular/platform-browser-dynamic": "5.0.0",
+    "@types/node": "^8.5.2",
+    "angular2-template-loader": "0.6.2",
+    "awesome-typescript-loader": "3.2.1",
+    "html-loader": "0.4.5",
+    "rxjs": "5.5.2",
+    "typescript": "2.6.2",
+    "webpack": "3.10.0",
+    "zone.js": "0.8.12"
+  }
 }

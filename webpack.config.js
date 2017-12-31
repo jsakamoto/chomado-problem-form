@@ -1,12 +1,14 @@
 module.exports = {
-    entry: ['./src/app.ts'],
+    entry: ['./src/bootstrap.ts'],
     output: {
-        filename: './bundle.js'
+        filename: './js/bundle.js'
     },
+    resolve: { extensions: ['.js', '.ts'] },
     module: {
         loaders: [
-            { test: /\.ts$/, loader: 'ts-loader' },
-            { test: /\.css$/, loaders: ['style-loader', 'css-loader'] }
+            { test: /\.ts$/, use: ['awesome-typescript-loader', 'angular2-template-loader'] },
+            { test: /\.html$/, loader: 'html-loader?minimize=false' }
+            //,{ test: /\.css$/, loaders: ['style-loader', 'css-loader'] }
         ]
     },
     devtool: 'source-map'
