@@ -6,9 +6,9 @@ module.exports = {
     resolve: { extensions: ['.js', '.ts'] },
     module: {
         loaders: [
-            { test: /\.ts$/, use: ['awesome-typescript-loader', 'angular2-template-loader'] },
-            { test: /\.html$/, loader: 'html-loader?minimize=false' },
-            { test: /\.css$/, loaders: ['style-loader', 'css-loader'] }
+            { test: /\.ts$/, use: ['cache-loader', 'awesome-typescript-loader', 'angular2-template-loader'] },
+            { test: /\.html$/, use: ['cache-loader', 'html-loader?minimize=false'] },
+            { test: /\.css$/, loaders: ['cache-loader', 'style-loader', 'css-loader'] }
         ]
     },
     devtool: 'source-map'
