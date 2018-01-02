@@ -1,0 +1,31 @@
+.form-container {
+    margin-bottom: 32px;
+}
+.form-container * {
+    font-size: 0;
+}
+.cell {
+    font-size: 14px;
+    display: inline-block;
+    width: 64px;
+    height: 42px;
+    line-height: 42px;
+    border-bottom: solid 1px #ccc;
+    text-align: center;
+}
+
+#btn-send-answer {
+    width: 320px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+#status-pane {
+    width: 320px;
+    text-align: center;
+}
+
+#congratulation-msg {
+    color: #ff4081;
+    font-size: 200%;
+}

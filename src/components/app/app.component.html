@@ -1,4 +1,32 @@
-<h1>Hello World!</h1>
+<div class="form-container">
+    <div>
+        <div class="cell">&nbsp;</div>
+        <div class="cell" *ngFor="let option of options">A{{option}}</div>
+    </div>
+    <div *ngFor="let Q of questions">
+        <mat-radio-group [(ngModel)]="Q.answer">
+            <div class="cell">Q{{Q.number}}.</div>
+            <div class="cell" *ngFor="let option of options">
+                <mat-radio-button color="primary" [value]="option"></mat-radio-button>
+            </div>
+        </mat-radio-group>
+    </div>
+</div>
+
 <div>
-    <button mat-raised-button color="primary">LETS GO</button>
+    <button id="btn-send-answer" mat-raised-button color="primary" [disabled]="!filled" (click)="sendAnswer()">Send Answer</button>
+</div>
+
+<div id="status-pane" *ngIf="correct_count">
+    <div id="congratulation-msg" *ngIf="correct_count == questions.length">
+        Congratulation!
+    </div>
+    <div>
+        <span>
+            {{correct_count}}
+        </span> answers are correct.
+    </div>
+    <div>
+        You tried {{trial}} time(s).
+    </div>
 </div>
