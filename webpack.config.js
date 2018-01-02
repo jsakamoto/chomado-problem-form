@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 module.exports = {
     entry: ['./src/bootstrap.ts'],
     output: {
@@ -11,5 +13,11 @@ module.exports = {
             { test: /\.css$/, loaders: ['cache-loader', 'to-string-loader', 'style-loader', 'css-loader'] }
         ]
     },
-    devtool: 'source-map'
+    devtool: 'source-map',
+    plugins: [
+        new webpack.DllReferencePlugin({
+            context: __dirname,
+            manifest: require('./js/vendor-manifest.json')
+        })
+    ]
 };

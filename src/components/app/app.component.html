@@ -14,7 +14,9 @@
 </div>
 
 <div>
-    <button id="btn-send-answer" mat-raised-button color="primary" [disabled]="!filled" (click)="sendAnswer()">Send Answer</button>
+    <button id="btn-send-answer" mat-raised-button color="primary" [disabled]="!filled" (click)="sendAnswer()">
+        Send Answer
+    </button>
 </div>
 
 <div id="status-pane" *ngIf="correct_count">
