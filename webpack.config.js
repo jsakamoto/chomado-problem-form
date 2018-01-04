@@ -1,9 +1,11 @@
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
     entry: ['./src/bootstrap.ts'],
     output: {
-        filename: './js/bundle.js'
+        path: path.join(__dirname, 'js'),
+        filename: 'bundle.js'
     },
     resolve: { extensions: ['.js', '.ts'] },
     module: {
@@ -19,5 +21,9 @@ module.exports = {
             context: __dirname,
             manifest: require('./js/vendor-manifest.json')
         })
-    ]
+    ],
+    devServer: {
+        port: 3000,
+        publicPath: '/js'
+    }
 };
