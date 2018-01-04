@@ -1,9 +1,9 @@
 <div class="form-container">
-    <div>
+    <div class="row">
         <div class="cell">&nbsp;</div>
         <div class="cell" *ngFor="let option of options">A{{option}}</div>
     </div>
-    <div *ngFor="let Q of questions">
+    <div class="row" *ngFor="let Q of questions">
         <mat-radio-group [(ngModel)]="Q.answer">
             <div class="cell">Q{{Q.number}}.</div>
             <div class="cell" *ngFor="let option of options">

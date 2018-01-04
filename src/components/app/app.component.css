@@ -4,6 +4,11 @@
 .form-container * {
     font-size: 0;
 }
+
+.row {
+    white-space: nowrap;
+}
+
 .cell {
     font-size: 14px;
     display: inline-block;
