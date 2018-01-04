@@ -5,4 +5,7 @@ import { AppModule } from './app.module'
 
 console.log('hello');
 
-const module = platformBrowserDynamic().bootstrapModule(AppModule);
+if (module.hot) {
+    module.hot.accept();
+}
+const modulePromise = platformBrowserDynamic().bootstrapModule(AppModule);
