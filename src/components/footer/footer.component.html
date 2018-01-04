@@ -1,0 +1,9 @@
+<footer>
+    Powered by TypeScript, Angular, Angular Material | Source code is
+    <a href="https://github.com/jsakamoto/chomado-problem-form" target="_blank">here</a>.(GNU GPLv2) | Contributors are
+    <span *ngFor="let contributor of contributors">
+        <a [href]="contributor.html_url" target="_blank" class="contributor">
+            <img [src]="contributor.avatar_url" [title]="contributor.login" class="avatar" />
+        </a>
+    </span>
+</footer>

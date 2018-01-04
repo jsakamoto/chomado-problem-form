@@ -1,0 +1,23 @@
+footer {
+    clear: both;
+    height: 2em;
+    line-height: 2em;
+    border-top: solid 1px #ccc;
+    padding-left: 1em;
+    color: #888;
+    font-size: 90%;
+    margin-top: 3em;
+}
+
+.contributor {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    margin: 4px;
+}
+
+.contributor .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+}

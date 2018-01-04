@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './components/app/app.component';
+import { FooterComponent } from './components/footer/footer.component';
 import * as Material from '@angular/material';
 import '@angular/material/prebuilt-themes/indigo-pink.css'
 import './styles/style.css'
@@ -13,12 +14,14 @@ import './styles/style.css'
         BrowserModule,
         HttpClientModule,
         FormsModule,
+        Material.MatToolbarModule,
         Material.MatCardModule,
         Material.MatButtonModule,
         Material.MatRadioModule
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        FooterComponent
     ],
     providers: [
         { provide: 'BASE_URL', useFactory: getBaseUrl }

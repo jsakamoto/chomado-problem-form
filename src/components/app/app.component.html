@@ -1,34 +1,65 @@
-<div class="form-container">
-    <div class="row">
-        <div class="cell">&nbsp;</div>
-        <div class="cell" *ngFor="let option of options">A{{option}}</div>
-    </div>
-    <div class="row" *ngFor="let Q of questions">
-        <mat-radio-group [(ngModel)]="Q.answer">
-            <div class="cell">Q{{Q.number}}.</div>
-            <div class="cell" *ngFor="let option of options">
-                <mat-radio-button color="primary" [value]="option"></mat-radio-button>
+<mat-toolbar color="primary">
+    <h1>Chomado Problem Form</h1>
+</mat-toolbar>
+
+<div class="main-contents">
+    <mat-card class="description">
+        <mat-card-title>
+            <h2>ちょまど問題フォーム</h2>
+        </mat-card-title>
+        <mat-card-content>
+            <h3>これは何?</h3>
+            <p>
+                <a [href]="serverUrl" target="_blank">"ちょまど問題" サーバー</a>へ回答を送信し、 応答された正答数を表示するだけの HTML フォームです。
+            </p>
+            <p>
+                サーバー側の実装はなく、ブラウザ上の JavaScript で 動作するため、GitHub pages に配置してみました。
+            </p>
+            <h3>"ちょまど問題" って?</h3>
+            <p>togetter にまとめがあります。</p>
+            <p>
+                <a href="http://togetter.com/li/682030" target="_blank">何回で満点とれる？【ちょまど問題に挑む人々】</a>
+            </p>
+
+        </mat-card-content>
+    </mat-card>
+
+    <div class="form-container">
+        <div class="form-body">
+            <div class="row">
+                <div class="cell">&nbsp;</div>
+                <div class="cell" *ngFor="let option of options">A{{option}}</div>
             </div>
-        </mat-radio-group>
+            <div class="row" *ngFor="let Q of questions">
+                <mat-radio-group [(ngModel)]="Q.answer">
+                    <div class="cell">Q{{Q.number}}.</div>
+                    <div class="cell" *ngFor="let option of options">
+                        <mat-radio-button color="primary" [value]="option"></mat-radio-button>
+                    </div>
+                </mat-radio-group>
+            </div>
+        </div>
+
+        <div>
+            <button id="btn-send-answer" mat-raised-button color="primary" [disabled]="!filled" (click)="sendAnswer()">
+                Send Answer
+            </button>
+        </div>
+
+        <div id="status-pane" *ngIf="correct_count">
+            <div id="congratulation-msg" *ngIf="correct_count == questions.length">
+                Congratulation!
+            </div>
+            <div>
+                <span>
+                    {{correct_count}}
+                </span> answers are correct.
+            </div>
+            <div>
+                You tried {{trial}} time(s).
+            </div>
+        </div>
     </div>
 </div>
 
-<div>
-    <button id="btn-send-answer" mat-raised-button color="primary" [disabled]="!filled" (click)="sendAnswer()">
-        Send Answer
-    </button>
-</div>
-
-<div id="status-pane" *ngIf="correct_count">
-    <div id="congratulation-msg" *ngIf="correct_count == questions.length">
-        Congratulation!
-    </div>
-    <div>
-        <span>
-            {{correct_count}}
-        </span> answers are correct.
-    </div>
-    <div>
-        You tried {{trial}} time(s).
-    </div>
-</div>
+<app-footer></app-footer>
