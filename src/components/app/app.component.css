@@ -1,0 +1,67 @@
+.main-contents {
+    width: 90%;
+    max-width: 1020px;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 32px;
+    text-align: center;
+}
+
+.mat-card.description {
+    width: 40%;
+    min-width: 360px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    margin-bottom: 32px;
+}
+
+.form-container {
+    vertical-align: top;
+    width: 40%;
+    min-width: 360px;
+    display: inline-block;
+}
+
+.form-body {
+    margin-bottom: 32px;
+    width: 320px;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.form-body * {
+    font-size: 0;
+}
+
+.row {
+    white-space: nowrap;
+}
+
+.cell {
+    font-size: 14px;
+    display: inline-block;
+    width: 64px;
+    height: 42px;
+    line-height: 42px;
+    border-bottom: solid 1px #ccc;
+    text-align: center;
+}
+
+#btn-send-answer {
+    width: 320px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+#status-pane {
+    width: 320px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#congratulation-msg {
+    color: #ff4081;
+    font-size: 200%;
+}
