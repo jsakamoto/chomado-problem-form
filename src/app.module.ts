@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+
 import { AppComponent } from './components/app/app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import * as Material from '@angular/material';
@@ -14,6 +16,7 @@ import './styles/style.css'
         BrowserModule,
         HttpClientModule,
         FormsModule,
+        LoadingBarHttpClientModule,
         Material.MatToolbarModule,
         Material.MatCardModule,
         Material.MatButtonModule,
