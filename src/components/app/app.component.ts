@@ -32,6 +32,5 @@ export class AppComponent {
         const apiUrl = this.serverUrl + "answer";
         this.correct_count = await this.http.post<number>(apiUrl, answers).toPromise();
         this.trial += 1
-        console.log({ correct_count: this.correct_count, trial: this.trial })
     }
 }
