@@ -13,31 +13,33 @@ const vendorModules = [
     '@angular/platform-browser',
     '@angular/platform-browser-dynamic',
     '@angular/platform-browser/animations',
-    //'@angular/router',
     '@angular/material/prebuilt-themes/indigo-pink.css',
     'reflect-metadata',
     'rxjs',
     'zone.js'
 ];
 
-module.exports = {
-    entry: vendorModules,
-    output: {
-        filename: './js/vendor.js',
-        library: libName
-    },
-    resolve: { extensions: ['.js', '.ts'] },
-    module: {
-        loaders: [
-            { test: /\.ts$/, use: ['cache-loader', 'awesome-typescript-loader', 'angular2-template-loader'] },
-            { test: /\.html$/, use: ['cache-loader', 'html-loader?minimize=false'] },
-            { test: /\.css$/, loaders: ['cache-loader', 'to-string-loader', 'style-loader', 'css-loader'] }
+module.exports = (env) => {
+    const isDevBuild = !(env && env.prod);
+    return {
+        entry: vendorModules,
+        output: {
+            filename: './js/vendor.js',
+            library: libName
+        },
+        resolve: { extensions: ['.js', '.ts'] },
+        module: {
+            loaders: [
+                { test: /\.ts$/, use: ['awesome-typescript-loader', 'angular2-template-loader'] },
+                { test: /\.html$/, use: ['html-loader?minimize=false'] },
+                { test: /\.css$/, loaders: ['to-string-loader', 'style-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize'] }
+            ]
+        },
+        plugins: [
+            new webpack.DllPlugin({
+                name: libName,
+                path: './js/vendor-manifest.json'
+            })
         ]
-    },
-    plugins: [
-        new webpack.DllPlugin({
-            name: libName,
-            path: './js/vendor-manifest.json'
-        })
-    ]
-};
+    };
+}

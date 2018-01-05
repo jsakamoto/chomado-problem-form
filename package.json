@@ -10,7 +10,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
-    "watch": "webpack -w"
+    "build:release": "webpack --config webpack.config.vendor.js -p --env.prod & webpack -p --env.prod"
   },
   "devDependencies": {
     "@angular/animations": "5.0.0",
