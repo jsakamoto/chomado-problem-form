@@ -1,0 +1,95 @@
+﻿body {
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+}
+
+.screen-mask {
+    position: fixed;
+    background-color: #000;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.0;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    visibility: hidden;
+    -moz-transition: all linear 0.2s;
+    -o-transition: all linear 0.2s;
+    -webkit-transition: all linear 0.2s;
+    transition: all linear 0.2s;
+}
+
+    .screen-mask.active {
+        opacity: 0.2;
+        visibility: visible;
+    }
+
+header {
+    background-color: #3f51b5;
+    color: #fff;
+    height: 64px;
+}
+
+    header h1 {
+        font-size: 20px;
+        margin: 0 16px;
+        line-height: 64px;
+    }
+
+#main-pain {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mdl-cell .mdl-card {
+    width: 90%;
+    margin: auto;
+}
+
+.mdl-cell table {
+    width: 90%;
+    margin: auto;
+}
+
+#btn-send-answer {
+    display: block;
+    width: 90%;
+    margin: 16px auto;
+    text-transform: uppercase;
+}
+
+#status-pane {
+    width: 90%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#congratulation-msg {
+    color: #ff4081;
+    font-size: 200%;
+    margin-bottom: 8px;
+}
+
+footer {
+    height: 2em;
+    line-height: 2em;
+    border-top: solid 1px #ccc;
+    padding-left: 1em;
+    color: #888;
+    font-size: 90%;
+    margin-top: 3em;
+}
+
+.contributor {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    margin: 4px;
+}
+
+    .contributor .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 4px;
+    }

@@ -1,0 +1,91 @@
+﻿@inject HttpClient Http
+
+<table class="mdl-data-table">
+    <thead>
+        <tr>
+            <th></th>
+            @foreach (var option in this.Options)
+            {
+                <th>A<span>@option</span></th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var answer in this.Answers)
+        {
+            var name = $"Q{answer.Q}";
+            <tr>
+                <td>@(name).</td>
+
+                @foreach (var option in this.Options)
+                {
+                    var id = $"{name}_{option}";
+                    <td>
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="@id">
+                            <input id="@id" name="@name" type="radio" class="mdl-radio__button" value="@option" checked="@(answer.Value == option)" onchange="@(() => answer.Value = option)" />
+                        </label>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <button id="btn-send-answer" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" disabled="@(!Filled)" onclick="@SendAnswers">
+        Send Answer
+    </button>
+</div>
+
+@if (CountOfTrial > 0)
+{
+    <div id="status-pane">
+        @if (NumOfCorrect == Answers.Length)
+        {
+            <div id="congratulation-msg">
+                Congratulation!
+            </div>
+        }
+        <div>
+            <span>@NumOfCorrect</span> answers are correct.
+        </div>
+        <div>
+            You tried @CountOfTrial time(s).
+        </div>
+    </div>
+}
+
+@functions
+{
+    string ServerUrl = "https://chomado-problem-server.azurewebsites.net/";
+
+    int[] Options = new[] { 1, 2, 3, 4 };
+
+    Answer[] Answers = Enumerable.Range(1, 10).Select(n => new Answer { Q = n }).ToArray();
+
+    int NumOfCorrect = 0;
+
+    int CountOfTrial = 0;
+
+    bool Filled => this.Answers.All(a => a.Value != null);
+
+    [Parameter]
+    Action<bool> OnSendingStatusChanged { get; set; }
+
+    async Task SendAnswers()
+    {
+        var answersValues = this.Answers.Select(a => a.Value);
+
+        this.OnSendingStatusChanged?.Invoke(true);
+        try
+        {
+            var apiUrl = this.ServerUrl + "answer";
+            this.NumOfCorrect = await this.Http.PostJsonAsync<int>(apiUrl, answersValues);
+            this.CountOfTrial++;
+        }
+        finally
+        {
+            this.OnSendingStatusChanged?.Invoke(false);
+        }
+    }
+}

@@ -1,0 +1,30 @@
+﻿<div class="@("screen-mask" + (this.Sending ? " active" : ""))"></div>
+
+<HeaderComponent />
+
+<div class="mdl-grid" id="main-pain">
+    <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+        <DescriptionComponent />
+    </div>
+    <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+        <FormComponent OnSendingStatusChanged="@FormComponent_OnSendingStatusChanged" />
+    </div>
+</div>
+
+<FooterComponent />
+
+@functions
+{
+    bool Sending = false;
+
+    void FormComponent_OnSendingStatusChanged(bool sending)
+    {
+        this.Sending = sending;
+        this.StateHasChanged();
+    }
+
+    protected override async Task OnAfterRenderAsync()
+    {
+        await JSRuntime.Current.InvokeAsync<object>("componentHandler.upgradeAllRegistered");
+    }
+}
