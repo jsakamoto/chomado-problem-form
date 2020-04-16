@@ -1,16 +1,22 @@
 ﻿@inject IJSRuntime JS
+<MaterialScripts />
+<MaterialStyles />
+
+<ThemeProvider Theme="@Theme.Light" />
 
 <div class="@("screen-mask" + (this.Sending ? " active" : ""))"></div>
 
 <HeaderComponent />
 
-<div class="mdl-grid" id="main-pain">
-    <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
-        <DescriptionComponent />
-    </div>
-    <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
-        <FormComponent OnSendingStatusChanged="@FormComponent_OnSendingStatusChanged" />
-    </div>
+<div id="main-pane">
+    <Grid Container Spacing="Spacing.Three">
+        <Grid Item ExtraSmall="GridSize.Twelve" Small="GridSize.Six">
+            <DescriptionComponent />
+        </Grid>
+        <Grid Item ExtraSmall="GridSize.Twelve" Small="GridSize.Six">
+            <FormComponent OnSendingStatusChanged="@FormComponent_OnSendingStatusChanged" />
+        </Grid>
+    </Grid>
 </div>
 
 <FooterComponent />
@@ -23,10 +29,5 @@
     {
         this.Sending = sending;
         this.StateHasChanged();
-    }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        await JS.InvokeVoidAsync("componentHandler.upgradeAllRegistered");
     }
 }

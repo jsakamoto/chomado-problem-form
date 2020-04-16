@@ -1,8 +1,4 @@
-﻿body {
-    font-family: "Roboto","Helvetica","Arial",sans-serif;
-}
-
-.screen-mask {
+﻿.screen-mask {
     position: fixed;
     background-color: #000;
     width: 100vw;
@@ -12,9 +8,6 @@
     left: 0;
     z-index: 10000;
     visibility: hidden;
-    -moz-transition: all linear 0.2s;
-    -o-transition: all linear 0.2s;
-    -webkit-transition: all linear 0.2s;
     transition: all linear 0.2s;
 }
 
@@ -35,34 +28,24 @@ header {
         line-height: 64px;
     }
 
-#main-pain {
+#main-pane {
     max-width: 980px;
     margin-left: auto;
     margin-right: auto;
+    padding: 18px;
 }
 
-.mdl-cell .mdl-card {
-    width: 90%;
-    margin: auto;
-}
-
-.mdl-cell table {
-    width: 90%;
-    margin: auto;
-}
-
-#btn-send-answer {
-    display: block;
-    width: 90%;
-    margin: 16px auto;
-    text-transform: uppercase;
+.answer-form, .answer-form table, .answer-form button {
+    width: 100%;
+    text-align: center;
 }
 
 #status-pane {
-    width: 90%;
+    width: 100%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    padding: 8px;
 }
 
 #congratulation-msg {
@@ -72,20 +55,21 @@ header {
 }
 
 footer {
-    height: 2em;
-    line-height: 2em;
+    margin-top: 0.5em;
+    height: 48px;
+    line-height: 48px;
     border-top: solid 1px #ccc;
     padding-left: 1em;
     color: #888;
     font-size: 90%;
-    margin-top: 3em;
 }
 
 .contributor {
     width: 32px;
     height: 32px;
     display: inline-block;
-    margin: 4px;
+    margin-left: 4px;
+    vertical-align: middle;
 }
 
     .contributor .avatar {

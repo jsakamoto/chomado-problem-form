@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Text;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Skclusive.Material.Component;
 
 namespace ChomadoProblemForm
 {
@@ -15,6 +13,7 @@ namespace ChomadoProblemForm
             builder.RootComponents.Add<App>("app");
 
             builder.Services.AddBaseAddressHttpClient();
+            builder.Services.TryAddMaterialServices(new MaterialConfigBuilder().Build());
 
             await builder.Build().RunAsync();
         }
