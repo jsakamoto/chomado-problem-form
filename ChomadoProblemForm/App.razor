@@ -1,4 +1,6 @@
-﻿<div class="@("screen-mask" + (this.Sending ? " active" : ""))"></div>
+﻿@inject IJSRuntime JS
+
+<div class="@("screen-mask" + (this.Sending ? " active" : ""))"></div>
 
 <HeaderComponent />
 
@@ -23,8 +25,8 @@
         this.StateHasChanged();
     }
 
-    protected override async Task OnAfterRenderAsync()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await JSRuntime.Current.InvokeAsync<object>("componentHandler.upgradeAllRegistered");
+        await JS.InvokeVoidAsync("componentHandler.upgradeAllRegistered");
     }
 }

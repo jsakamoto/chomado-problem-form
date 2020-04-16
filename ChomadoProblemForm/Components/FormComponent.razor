@@ -22,7 +22,7 @@
                     var id = $"{name}_{option}";
                     <td>
                         <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="@id">
-                            <input id="@id" name="@name" type="radio" class="mdl-radio__button" value="@option" checked="@(answer.Value == option)" onchange="@(() => answer.Value = option)" />
+                            <input id="@id" name="@name" type="radio" class="mdl-radio__button" value="@option" checked="@(answer.Value == option)" @onchange="(() => answer.Value = option)" />
                         </label>
                     </td>
                 }
@@ -32,7 +32,7 @@
 </table>
 
 <div>
-    <button id="btn-send-answer" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" disabled="@(!Filled)" onclick="@SendAnswers">
+    <button id="btn-send-answer" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary" disabled="@(!Filled)" @onclick="SendAnswers">
         Send Answer
     </button>
 </div>
@@ -70,7 +70,7 @@
     bool Filled => this.Answers.All(a => a.Value != null);
 
     [Parameter]
-    Action<bool> OnSendingStatusChanged { get; set; }
+    public Action<bool> OnSendingStatusChanged { get; set; }
 
     async Task SendAnswers()
     {

@@ -27,9 +27,9 @@ togetter にまとめがあります。
 
 ### 開発ツールのインストール
 
-ビルドには .NET Core SDK 2.1.300 以降が必要です。
+ビルドには .NET Core SDK 3.1.201 以降が必要です。
 
-- [.NET Core SDK 2.1 ダウンロード](https://www.microsoft.com/net/download/dotnet-core/2.1)
+- [.NET Core SDK 3.1 ダウンロード](https://www.microsoft.com/net/download/dotnet-core/3.1)
 
 ### 開発時実行
 
@@ -46,9 +46,9 @@ togetter にまとめがあります。
 
 カレントディレクトリを作業フォルダ内の ChomadoProblemForm サブフォルダに移動した上で `dotnet publish -c Release` を実行します。
 
-すると、`bin\Release\netstandard2.0\publish\ChomadoProblemForm\dist` サブフォルダ以下に、Chomado Probelm Form に必要なすべての静的コンテンツが生成されます。
+すると、`bin\Release\netstandard2.1\publish\wwwroot` サブフォルダ以下に、Chomado Probelm Form に必要なすべての静的コンテンツが生成されます。
 
-上記 `dist` フォルダ内のファイルを、静的コンテンツをホストできる Web サーバー上に配置することで、Chomado Problem Form を配置できます。
+上記 `wwwroot` フォルダ内のファイルを、静的コンテンツをホストできる Web サーバー上に配置することで、Chomado Problem Form を配置できます。
 
 ※補足 - GitHub Pages 上に配置する場合は、`index.html` と並べて `.nojekyll` という名前の空ファイルを追加してください。このファイルがないと、GitHub Pages では、アンダースコア ("_") で始まるフォルダ名へのアクセスが HTTP 404 NotFound エラーになってしまうため、且つ、Blazor アプリの発行結果にはアンダースコアで始まる名前のフォルダが含まれるためです。
 

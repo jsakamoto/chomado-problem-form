@@ -16,7 +16,7 @@
 @functions{
     Contributor[] Contributors = new Contributor[0];
 
-    protected override async Task OnInitAsync()
+    protected override async Task OnInitializedAsync()
     {
         const string contributorsUrl = "https://api.github.com/repos/jsakamoto/chomado-problem-form/contributors";
         this.Contributors = await this.Http.GetJsonAsync<Contributor[]>(contributorsUrl);
