@@ -1,0 +1,79 @@
+﻿.screen-mask {
+    position: fixed;
+    background-color: #000;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.0;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    visibility: hidden;
+    transition: all linear 0.2s;
+}
+
+    .screen-mask.active {
+        opacity: 0.2;
+        visibility: visible;
+    }
+
+header {
+    background-color: #3f51b5;
+    color: #fff;
+    height: 64px;
+}
+
+    header h1 {
+        font-size: 20px;
+        margin: 0 16px;
+        line-height: 64px;
+    }
+
+#main-pane {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 18px;
+}
+
+.answer-form, .answer-form table, .answer-form button {
+    width: 100%;
+    text-align: center;
+}
+
+#status-pane {
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+}
+
+#congratulation-msg {
+    color: #ff4081;
+    font-size: 200%;
+    margin-bottom: 8px;
+}
+
+footer {
+    margin-top: 0.5em;
+    height: 48px;
+    line-height: 48px;
+    border-top: solid 1px #ccc;
+    padding-left: 1em;
+    color: #888;
+    font-size: 90%;
+}
+
+.contributor {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    margin-left: 4px;
+    vertical-align: middle;
+}
+
+    .contributor .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 4px;
+    }
