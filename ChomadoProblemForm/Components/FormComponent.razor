@@ -79,7 +79,8 @@
         try
         {
             var apiUrl = this.ServerUrl + "answer";
-            this.NumOfCorrect = await this.Http.PostJsonAsync<int>(apiUrl, answersValues);
+            var response = await this.Http.PostAsJsonAsync(apiUrl, answersValues);
+            this.NumOfCorrect = await response.Content.ReadFromJsonAsync<int>();
             this.CountOfTrial++;
         }
         finally
