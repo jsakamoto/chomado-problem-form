@@ -69,13 +69,13 @@
     bool Filled => this.Answers.All(a => a.Value != null);
 
     [Parameter]
-    public Action<bool> OnSendingStatusChanged { get; set; }
+    public EventCallback<bool> OnSendingStatusChanged { get; set; }
 
     async Task SendAnswers()
     {
         var answersValues = this.Answers.Select(a => a.Value);
 
-        this.OnSendingStatusChanged?.Invoke(true);
+        await this.OnSendingStatusChanged.InvokeAsync(true);
         try
         {
             var apiUrl = this.ServerUrl + "answer";
@@ -85,7 +85,7 @@
         }
         finally
         {
-            this.OnSendingStatusChanged?.Invoke(false);
+            await this.OnSendingStatusChanged.InvokeAsync(false);
         }
     }
 }

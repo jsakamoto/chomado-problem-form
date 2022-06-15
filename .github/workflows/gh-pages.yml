@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       # Checkout the code
       - uses: actions/checkout@v2
@@ -16,11 +16,13 @@ jobs:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 5.0.100-rc.2.20479.15
+          dotnet-version: 7.0.100-preview.5.22307.18
+      - name: Install .NET WebAssembly Tools
+        run: dotnet workload install wasm-tools
 
       # Publish the site
       - name: Publish
-        run: dotnet publish ChomadoProblemForm/ChomadoProblemForm.csproj -c Release -o public -p:GHPages=true
+        run: dotnet publish ChomadoProblemForm/ChomadoProblemForm.csproj -c:Release -o:public -p:GHPages=true
 
       # Deploy the site
       - name: Deploy

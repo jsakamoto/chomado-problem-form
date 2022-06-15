@@ -1,33 +1,30 @@
-﻿@inject IJSRuntime JS
-<MaterialScripts />
-<MaterialStyles />
+﻿<div class="@("screen-mask" + (this.Sending ? " active" : ""))"></div>
 
-<ThemeProvider Theme="@Theme.Light" />
+<ThemeProvider>
 
-<div class="@("screen-mask" + (this.Sending ? " active" : ""))"></div>
+    <HeaderComponent />
 
-<HeaderComponent />
-
-<div id="main-pane">
-    <Grid Container Spacing="Spacing.Three">
-        <Grid Item ExtraSmall="GridSize.Twelve" Small="GridSize.Six">
-            <DescriptionComponent />
+    <div id="main-pane">
+        <Grid Container Spacing="Skclusive.Core.Component.Spacing.Three">
+            <Grid Item ExtraSmall="GridSize.Twelve" Small="GridSize.Six">
+                <DescriptionComponent />
+            </Grid>
+            <Grid Item ExtraSmall="GridSize.Twelve" Small="GridSize.Six">
+                <FormComponent OnSendingStatusChanged="@FormComponent_OnSendingStatusChanged" />
+            </Grid>
         </Grid>
-        <Grid Item ExtraSmall="GridSize.Twelve" Small="GridSize.Six">
-            <FormComponent OnSendingStatusChanged="@FormComponent_OnSendingStatusChanged" />
-        </Grid>
-    </Grid>
-</div>
+    </div>
 
-<FooterComponent />
+    <FooterComponent />
 
-@functions
+</ThemeProvider>
+
+@code
 {
     bool Sending = false;
 
     void FormComponent_OnSendingStatusChanged(bool sending)
     {
         this.Sending = sending;
-        this.StateHasChanged();
     }
 }

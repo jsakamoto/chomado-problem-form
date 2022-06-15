@@ -20,7 +20,7 @@
       "commandName": "Project",
       "launchBrowser": true,
       "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
-      "applicationUrl": "http://localhost:49940/;https://localhost:49941/",
+      "applicationUrl": "http://localhost:5010/;https://localhost:5011/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
