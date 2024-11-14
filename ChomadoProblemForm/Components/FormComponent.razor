@@ -1,40 +1,48 @@
 ﻿@inject HttpClient Http
-<FormControl Component="div" Class="answer-form">
-    <table>
-        <tr>
-            <th></th>
+<div class="answer-form">
+
+    <div class="table">
+
+        <div class="row">
+
+            <div class="header cell"></div>
+
             @foreach (var option in this.Options)
             {
-                <th>A@(option)</th>
+                <div class="header cell">A@(option)</div>
             }
-        </tr>
+        </div>
+
         @foreach (var answer in this.Answers)
         {
             var name = $"Q{answer.Q}";
-            <RadioGroup Name="name" Value="@($"{answer.Value}")" OnChange="@(args=> { answer.Value = int.Parse(args.Value.ToString()); })" Component="tr" Style="display:table-row;">
-                <td>@(name).</td>
-                @foreach (var option in this.Options)
-                {
-                    <td>
-                        <Radio Value="@(option.ToString())" Color="Color.Primary" />
-                    </td>
-                }
-            </RadioGroup>
-        }
-    </table>
 
-    <div>
-        <Button OnClick="SendAnswers" Disabled="!Filled" Variant="ButtonVariant.Contained" Color="Color.Primary" Size="Size.Large">
-            <EndIcon>
-                <SendIcon />
-            </EndIcon>
-            <ChildContent>
-                Send Answer
-            </ChildContent>
-        </Button>
+            <MudRadioGroup @key="name" @bind-Value="answer.Value">
+                <div class="row">
+                    <div class="cell">@(name).</div>
+                    @foreach (var option in this.Options)
+                    {
+                        <div @key="option" class="cell">
+                            <MudRadio T="int?" Value="option" Color="Color.Primary" />
+                        </div>
+                    }
+                </div>
+            </MudRadioGroup>
+        }
     </div>
 
-</FormControl>
+    <div>
+        <MudButton OnClick="SendAnswers"
+                   Disabled="!Filled"
+                   Variant="Variant.Filled"
+                   Color="Color.Primary"
+                   Size="Size.Large"
+                   EndIcon="@Icons.Material.Filled.Send">
+            Send Answer
+        </MudButton>
+    </div>
+
+</div>
 
 @if (CountOfTrial > 0)
 {

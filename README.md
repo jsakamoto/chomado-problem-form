@@ -27,30 +27,30 @@ togetter にまとめがあります。
 
 ### 開発ツールのインストール
 
-ビルドには .NET Core SDK 3.1.201 以降が必要です。
+ビルドには .NET SDK 9.0 以降が必要です。
 
-- [.NET Core SDK 3.1 ダウンロード](https://www.microsoft.com/net/download/dotnet-core/3.1)
+- [.NET SDK 9.0 ダウンロード](https://dotnet.microsoft.com/download/dotnet/9.0)
 
 ### 開発時実行
 
 このリポジトリを git clone したら、ターミナルないしはコマンドプロンプトにて、
 カレントディレクトリを作業フォルダ内の ChomadoProblemForm サブフォルダに移動した上で `dotnet run` を実行します。
 
-すると、必要なビルド処理が実行されたのちに、開発用 Web サーバーが立ち上がり、ポート 49940 で待ち受けします。
+すると、必要なビルド処理が実行されたのちに、開発用 Web サーバーが立ち上がり、ポート 5010 で待ち受けします。
 
-この状態で Web ブラウザで `http://localhost:49940/` を開くと Chomadp Problem Form が開きます。
+この状態で Web ブラウザで `http://localhost:5010/` を開くと Chomado Problem Form が開きます。
 
 ※開発用 Web サーバーを停止するには Ctrl + C を押してください。
 
 ### 発行
 
-カレントディレクトリを作業フォルダ内の ChomadoProblemForm サブフォルダに移動した上で `dotnet publish -c Release` を実行します。
+カレントディレクトリを作業フォルダ内の ChomadoProblemForm サブフォルダに移動した上で `dotnet publish` を実行します。
 
-すると、`bin\Release\netstandard2.1\publish\wwwroot` サブフォルダ以下に、Chomado Probelm Form に必要なすべての静的コンテンツが生成されます。
+すると、`bin\Release\net9.0\publish\wwwroot` サブフォルダ以下に、Chomado Probelm Form に必要なすべての静的コンテンツが生成されます。
 
 上記 `wwwroot` フォルダ内のファイルを、静的コンテンツをホストできる Web サーバー上に配置することで、Chomado Problem Form を配置できます。
 
-※補足 - GitHub Pages 上に配置する場合は、`index.html` と並べて `.nojekyll` という名前の空ファイルを追加してください。このファイルがないと、GitHub Pages では、アンダースコア ("_") で始まるフォルダ名へのアクセスが HTTP 404 NotFound エラーになってしまうため、且つ、Blazor アプリの発行結果にはアンダースコアで始まる名前のフォルダが含まれるためです。
+※補足 - GitHub Pages 上に配置する場合は、`dotnet publish -p GHPages=true` を実行してください。`GHPages` MSBuild プロパティに `true` を指定することで、GitHub Pages に適したファイル構成が生成され、Brotli 圧縮も有効化されます。
 
 ### Visual Studio Code による開発
 

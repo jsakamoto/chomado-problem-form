@@ -1,23 +1,21 @@
 ﻿<div class="@("screen-mask" + (this.Sending ? " active" : ""))"></div>
+<MudThemeProvider />
+<MudPopoverProvider />
 
-<ThemeProvider>
+<HeaderComponent />
 
-    <HeaderComponent />
-
-    <div id="main-pane">
-        <Grid Container Spacing="Skclusive.Core.Component.Spacing.Three">
-            <Grid Item ExtraSmall="GridSize.Twelve" Small="GridSize.Six">
-                <DescriptionComponent />
-            </Grid>
-            <Grid Item ExtraSmall="GridSize.Twelve" Small="GridSize.Six">
-                <FormComponent OnSendingStatusChanged="@FormComponent_OnSendingStatusChanged" />
-            </Grid>
-        </Grid>
+<div id="main-pane">
+    <div class="root-container">
+        <div style="flex:1;">
+            <DescriptionComponent />
+        </div>
+        <div style="flex:1;">
+            <FormComponent OnSendingStatusChanged="@FormComponent_OnSendingStatusChanged" />
+        </div>
     </div>
+</div>
 
-    <FooterComponent />
-
-</ThemeProvider>
+<FooterComponent />
 
 @code
 {

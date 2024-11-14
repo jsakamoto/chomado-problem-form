@@ -2,7 +2,7 @@
 
 <footer>
     Powered by <a href="https://blazor.net/" target="_blank">Blazor</a>,
-    <a href="https://skclusive.github.io/Skclusive.Material.Docs/" target="_blank">Skclusive-UI</a> |
+    <a href="https://mudblazor.com/" target="_blank">MudBlazor</a> |
     Source code is <a href="https://github.com/jsakamoto/chomado-problem-form" target="_blank">here</a>.(GNU GPLv2) |
     Contributors are
     @foreach (var contributor in Contributors)
@@ -17,11 +17,11 @@
 
 @code
 {
-    Contributor[] Contributors = new Contributor[0];
+    private IEnumerable<Contributor> Contributors = [];
 
     protected override async Task OnInitializedAsync()
     {
         const string contributorsUrl = "https://api.github.com/repos/jsakamoto/chomado-problem-form/contributors";
-        this.Contributors = await this.Http.GetFromJsonAsync<Contributor[]>(contributorsUrl);
+        this.Contributors = await this.Http.GetFromJsonAsync<Contributor[]>(contributorsUrl) ?? [];
     }
 }

@@ -2,6 +2,19 @@
     height: 100vh;
 }
 
+h3, h4 {
+    margin: 16px 0;
+}
+
+p {
+    margin: 14px 0;
+}
+
+a {
+    color: rgb(0, 0, 238);
+    text-decoration: underline;
+}
+
 .screen-mask {
     position: fixed;
     background-color: #000;
@@ -45,18 +58,47 @@ header {
     overflow-y: auto;
 }
 
-    #main-pane .Grid-Root {
-        width: 90%;
+    #main-pane .root-container {
+        display: flex;
+        gap: 24px;
+        padding: 32px;
         max-width: 980px;
-        margin: 18px auto 18px auto;
+        margin: auto;
     }
 
+@media only screen and (max-width: 640px) {
 
+    #main-pane .root-container {
+        flex-direction: column;
+    }
+}
 
-.answer-form, .answer-form table, .answer-form button {
+.answer-form, .answer-form .table, .answer-form button {
     width: 100%;
     text-align: center;
 }
+
+    .answer-form .table .row {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+        .answer-form .table .row .cell {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+            .answer-form .table .row .cell.header {
+                font-weight: bold;
+            }
+
+            .answer-form .table .row .cell .mud-radio-content-placement-end {
+                margin-left: 0;
+                margin-inline-start: 0;
+            }
 
 #status-pane {
     width: 100%;
